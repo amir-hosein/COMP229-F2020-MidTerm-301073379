@@ -41,16 +41,7 @@ router.post('/add', ({ body: { title, author, price, genre } }, res, next) => {
 
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', ({ params: { id } }, res, next) => {
-  // find a specific book in the books collection
-  book.find({ Title: id }, (err, book) => {
-    if (err) next(err);
-    else {
-      res.render('books/details', {
-        title: book.Title,
-        books: book
-      });
-    }
-  });
+  res.render('books/details', { title: 'Edit book', books: {} });
 });
 
 // POST - process the information passed from the details form and update the document
