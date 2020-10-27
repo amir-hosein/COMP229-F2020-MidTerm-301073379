@@ -35,7 +35,7 @@ router.post('/add', ({ body: { title, author, price, genre } }, res, next) => {
     Genre: genre 
   }, err => {
     if(err) next(err); 
-    else res.redirect('/');
+    else res.redirect('/books');
   })
 });
 
@@ -65,7 +65,7 @@ router.post('/:id', ({ params: { id }, body: { title, author, price, genre } } ,
       Genre: genre
     }, err => {
       if (err) next(err);
-      else res.redirect('/');
+      else res.redirect('/books');
   })
 });
 
@@ -74,7 +74,7 @@ router.get('/delete/:id', ({ params: { id } }, res, next) => {
   // delete a specific book in the books collection
   book.deleteOne({ _id: id }, err => {
     if (err) next(err);
-    else res.redirect('/');
+    else res.redirect('/books');
   })
 });
 
